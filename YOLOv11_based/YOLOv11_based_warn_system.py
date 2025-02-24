@@ -8,12 +8,12 @@ classes = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
 font = cv2.FONT_HERSHEY_PLAIN
 
 # YOLO 모델 로드
-model = YOLO('/Volumes/samsung ssd/Driver-Forward-Attention-Warning-System/YOLOv8_based/best.pt')
+model = YOLO('YOLOv11_based/YOLOv11s_epochs_250_batch_16_imgsz_224_best.pt')
 
 # 경고 이미지 및 사운드 설정
-warning = cv2.imread("/Volumes/samsung ssd/Driver-Forward-Attention-Warning-System/YOLOv8_based/warn_image.png", cv2.IMREAD_UNCHANGED)
+warning = cv2.imread("YOLOv11_based/warn_image.png", cv2.IMREAD_UNCHANGED)
 warning_resize = cv2.resize(warning, dsize=(1000, 1000))
-warning_sound = "warn_sound.mp3"
+warning_sound = "YOLOv11_based/warn_sound.mp3"
 
 # OpenCV 캡처 객체 생성
 capture = cv2.VideoCapture(1)

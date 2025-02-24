@@ -4,16 +4,17 @@ import time
 import pygame
 
 # Yolo 로드
-net = cv2.dnn.readNet("yolov3_training_last.weights", "yolov3_testing.cfg")
+net = cv2.dnn.readNet("YOLOv3_based/yolov3_training_last.weights",
+                      "YOLOv3_based/yolov3_testing.cfg")
 classes = []
 
 # 학습 파일 open
-with open("coco.names", "r") as f:
+with open("YOLOv3_based/coco.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 
 print(*classes) # 클래스들 출력
 
-warning = cv2.imread("warning.png", cv2.IMREAD_UNCHANGED)
+warning = cv2.imread("YOLOv3_based/warn_image.png", cv2.IMREAD_UNCHANGED)
 warning_resize = cv2.resize(warning, dsize=(1000, 1000))
 
 layer_names = net.getLayerNames()
@@ -86,7 +87,7 @@ while True:
     # 현재 시각에서 마지막으로 전방주시가 정상이었던 시각을 뺀 값이 일정 시간을 넘어간 경우 전방주시 불량으로 판단
     if time.time() - detect_time > warning_time: #1차 경고 출력
         print("경고 (종료: 2초)") # 경고 2초간 출력
-        music_file = "99E6EB435CDE913E23.mp3" # 경고음 경로 생성
+        music_file = "YOLOv3_based/warn_sound.mp3" # 경고음 경로 생성
         pygame.mixer.init() # mixer생성
         pygame.mixer.music.load(music_file) # 경고음 파일 로드
         pygame.mixer.music.play(-1) # 경고음 재생 -> -1으로 설정하여 무한 반복
@@ -106,7 +107,7 @@ while True:
     elif war == 1 and time.time() - detect_time > 1: # 2차 경고 출력
         print("경고 (종료: 사용자 피드백)")
         
-        music_file = "99E6EB435CDE913E23.mp3" # 경고음 경로 생성
+        music_file = "YOLOv3_based/warn_sound.mp3" # 경고음 경로 생성
         pygame.mixer.init() # mixer 생성
         pygame.mixer.music.load(music_file) # 경고음 파일 로드
         pygame.mixer.music.play(-1) # 경고음 재생 -> 무한반복

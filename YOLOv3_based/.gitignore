@@ -1,0 +1,5 @@
+/yolov3_training_last.weights
+/yolov3_testing.cfg
+/warn_image.png
+/warn_sound.mp3
+/coco.names
