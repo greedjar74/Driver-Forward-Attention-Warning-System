@@ -2,6 +2,7 @@
 '운전자 전방주시 알림 시스템 구현'
 
 # 전방주시 미흡 판단 알고리즘
+![Image](https://github.com/user-attachments/assets/2e1b7654-041f-4056-9d94-5b900119ddcd)
 - 눈 객체 탐지
 - 눈 객체 1개 이상: 정상
 - 눈 객체 없음: 비정상
